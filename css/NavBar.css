@@ -35,6 +35,7 @@ nav-bar >.frame > .left {
     margin:5px 0 5px 0;
     border-radius: 5px;
     cursor: pointer;
+    box-sizing: content-box;
 
 
     /* Header 2 - Bold 30(34) */
@@ -70,6 +71,7 @@ nav-bar > .frame > .right > .right-item {
     margin: 5px 5px 5px 5px;
     padding: 5px 5px 5px 5px;
     border-radius: 5px;
+    box-sizing: content-box;
 
     /* Body - Med 16(13.3) */
     font-family: 'Noto Sans TC';
