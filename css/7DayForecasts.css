@@ -1,0 +1,82 @@
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    position: relative;
+    margin: 40px 0 ;
+}
+.container_top{ 
+    width: 1200px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 120px 72px repeat(7,1fr);
+    grid-template-rows: 80px ;
+    grid-template-areas: "p1 p2 p3 p4 p5 p6 p7 p8 p9";
+}
+.container_top>div,
+.container_cities>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    white-space: pre;
+    text-align: center;
+    border-radius: 5px;
+}
+.container_top>div{
+    color: white;
+    background-color: #767522;
+}
+.container_cities{ 
+    margin-top: 5px;
+    width: 1200px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 120px 72px repeat(7,1fr);
+    grid-auto-rows: 80px ;
+    grid-template-areas: 
+                        "city day 0 2 4 6 8 10 12"
+                        "city night 1 3 5 7 9 11 13"
+                        "city UVI U1 U2 U3 U4 U5 U6 U7";
+}
+.city{
+    grid-area: city;
+    background-color: #767522;
+    color: white;
+}
+.day{
+    grid-area: day;
+    background-color: #767522;
+    color: white;
+}
+.night{
+    grid-area: night;
+    background-color: #767522;
+    color: white;
+}
+.oneday{
+    background-color: #FFF8F0;
+    color: gray;
+}
+.UVI{
+    grid-area: UVI;
+    background-color: #767522;
+    color: white;
+}
+.UVIdiv{
+    background-color: #FFF8F0;
+    color: white;
+}
+.UVIindex{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    box-shadow: 8px 8px 2px rgba(46, 45, 45, 0.125);
+}
+
+
