@@ -130,6 +130,7 @@
     margin: 0 auto 30px;
 }
 
+/* columns */
 .list-items>li {
     display: flex;
     min-height: 55px;
@@ -143,20 +144,38 @@
 
 .list-items>li>span {
     width: 33.33%;
+}
+
+/* City */
+.city {
+    font-size: 16px;
     text-align: center;
 }
 
-.city {
-    font-size: 16px;
+/* Wx & temperature */
+.wx {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .wx>img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
 }
 
+.wx>.temperature {
+    font-size: 14px;
+}
+
+.wx>.temperature::after {
+    content:'°C';
+}
+
+/* PoP */
 .rain {
     font-size: 16px;
+    padding-left: 30px;
 }
 
 .rain::before {

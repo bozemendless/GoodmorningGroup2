@@ -110,18 +110,23 @@ function getWeather() {
             // View of weather data
             function changeData() {
                 const cities = document.getElementsByClassName("city");
+                const img = document.querySelectorAll(".wx img");
+                const temperatureSpans = document.querySelectorAll(".wx span");
+                const rain = document.getElementsByClassName("rain");
                 for (let i = 0; i < numberOfCities; i ++) {
+                    // City name
                     cities[i].textContent = location[i].locationName;
-                }
-                for (let i = 0; i < numberOfCities; i ++) {
-                    const img = document.querySelectorAll(".wx img");
+                    // Wx
                     img[i].title = location[i].weatherElement[0].time[period].parameter.parameterName;
                     img[i].alt = location[i].weatherElement[0].time[period].parameter.parameterName;
                     img[i].src = getWxIconSrc(dayOrNight[period], parseInt(location[i].weatherElement[0].time[period].parameter.parameterValue));
-                }
-                const rain = document.getElementsByClassName("rain");
-                for (let i = 0; i < numberOfCities; i ++) {
+                    // Temperature
+                    const minToMaxTemperature = `${location[i].weatherElement[2].time[period].parameter.parameterName} - ${location[i].weatherElement[4].time[period].parameter.parameterName}`;
+                    temperatureSpans[i].textContent = minToMaxTemperature;
+
+                    // PoP
                     rain[i].textContent = location[i].weatherElement[1].time[period].parameter.parameterName + "%";
+                    rain[i].title = "降雨機率";
                 }
                 // change icon on slider
                 const icon = document.querySelector("#icon img");
