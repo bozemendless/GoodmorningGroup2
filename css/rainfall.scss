@@ -12,6 +12,11 @@
       @content;
     }
 }
+@mixin screen1000{
+    @media(max-width:1000px){
+      @content;
+    }
+}
 @mixin screen440{
     @media(max-width:440px){
       @content;
@@ -53,15 +58,7 @@ body{
                     background-color:#F4D06F;
                     border:3px #767522 solid;
                     border-radius: 5px;
-                    // #realcontain::-webkit-scrollbar{
-                    //     background-color: aqua;
-                    // }
                 }
-                // #selectTitle::-webkit-scrollbar{
-                //     width:1em;
-
-                    
-                // }
 
             }
             .select_second{
@@ -80,6 +77,9 @@ body{
                         width:80%;
                         text-align: center;
                         line-height: 50px;
+                        .day_contain{
+                            color: rgb(72, 72, 72);
+                        }
                     }
                 }
                 .daily_block{
@@ -93,27 +93,36 @@ body{
                         line-height: 50px;
                     }
                 }
-                // .monthly_block{
-                //     width:100%;
-                //     height: 50px;
-                //     display: flex;
-                //     justify-content: center;
-                //     .monthly_rain_title{
-                //         width:80%;
-                //         text-align: center;
-                //         line-height: 50px;
-                //     }
-                // }
             }
         }
     }
     .rainfall_section_two{
         margin-top: 100px;
         // width:1000px;
+        @include screen1000{
+            display:none;
+        }
         .wrapper{
             .container{
-                height:100vh;
+                height:300px;
                 .chartWrapper{
+                    width:1200px;
+                    height:300px;
+                    margin:0 auto;
+                    @include screen1250{
+                        width:95%;
+                    }
+                }
+            }
+        }
+    }
+    .rainfall_section_compare{
+        margin-top: 100px;
+        // width:1000px;
+        .wrapper_compare{
+            .container_compare{
+                height:100vh;
+                .chartWrapper_compare{
                     width:1200px;
                     height:300px;
                     margin:0 auto;

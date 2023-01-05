@@ -66,6 +66,9 @@ body .rainfall_section_one .select_block .select_second .time_block .day_title {
   text-align: center;
   line-height: 50px;
 }
+body .rainfall_section_one .select_block .select_second .time_block .day_title .day_contain {
+  color: rgb(72, 72, 72);
+}
 body .rainfall_section_one .select_block .select_second .daily_block {
   width: 100%;
   height: 50px;
@@ -80,8 +83,13 @@ body .rainfall_section_one .select_block .select_second .daily_block .daily_rain
 body .rainfall_section_two {
   margin-top: 100px;
 }
+@media (max-width: 1000px) {
+  body .rainfall_section_two {
+    display: none;
+  }
+}
 body .rainfall_section_two .wrapper .container {
-  height: 100vh;
+  height: 300px;
 }
 body .rainfall_section_two .wrapper .container .chartWrapper {
   width: 1200px;
@@ -90,6 +98,22 @@ body .rainfall_section_two .wrapper .container .chartWrapper {
 }
 @media (max-width: 1250px) {
   body .rainfall_section_two .wrapper .container .chartWrapper {
+    width: 95%;
+  }
+}
+body .rainfall_section_compare {
+  margin-top: 100px;
+}
+body .rainfall_section_compare .wrapper_compare .container_compare {
+  height: 100vh;
+}
+body .rainfall_section_compare .wrapper_compare .container_compare .chartWrapper_compare {
+  width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+}
+@media (max-width: 1250px) {
+  body .rainfall_section_compare .wrapper_compare .container_compare .chartWrapper_compare {
     width: 95%;
   }
 }/*# sourceMappingURL=rainfall.css.map */

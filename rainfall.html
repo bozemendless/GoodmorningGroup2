@@ -9,7 +9,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="css/NavBar.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/rainfall.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-    
+
 </head>
 
 <body>
@@ -30,9 +30,6 @@
                 <div class="daily_block">
                     <div class="daily_rain_title">當日累積雨量 : <i class="daily_rain_contain">--</i></div>
                 </div>
-                <!-- <div class="monthly_block">
-                    <div class="monthly_rain_title">當月累積雨量 : <i class="month_rain_contain">--</i></div>
-                </div> -->
             </div>
 
         </div>    
@@ -49,7 +46,23 @@
             </div>
         </div>
     </section>
-    
+
+    <section class="rainfall_section_compare">
+        <div class="wrapper_compare">
+            <div class="container_compare">
+                <div class="titl_compare">
+                    <!-- <h1>what's your favorite food</h1> -->
+                </div>
+                <div class="chartWrapper_compare">
+                    <canvas id="myChart_compare"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
+    <script src="./js/rainfall.js"></script>
 
 </body>
 
@@ -58,9 +71,9 @@
 </html>
 
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
-<script src="./js/rainfall.js"></script>
-
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1/dist/chart.umd.min.js"></script>
+<script src="./js/rainfall.js"></script> -->
+<!-- 
 <script>
     function createChart(newAttractionPrecipitationArray,attractionNameArray){
         let chartStatus = Chart.getChart("myChart"); // <canvas> id
@@ -121,5 +134,5 @@
         });
     }
     
-</script>
+</script> -->
 
