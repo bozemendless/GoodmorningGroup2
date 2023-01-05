@@ -4,7 +4,7 @@ const setDtate = function(){
     const weekdayArry =["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     for (let i =0 ; i<7; i++){
         let milliseconds=date.getTime() + 1000*60*60*24*i;
-        if ( date.getHours() > 15 ){
+        if ( date.getHours() > 16 ){
             milliseconds=date.getTime() + 1000*60*60*24+1000*60*60*24*i;
         }
         let newdate = new Date(milliseconds);
@@ -19,10 +19,10 @@ const setDtate = function(){
     }
 }
 // 創建頂部欄位
-const createTopBar = function(){
+const createTopBar = function(location){
     let containerAll = document.createElement("div")
     containerAll.className="containerAll"
-    document.querySelector("main").appendChild(containerAll)
+    document.querySelector(location).appendChild(containerAll)
     let container_top = document.createElement("div")
     container_top.className="container_top"
     containerAll.appendChild(container_top)
@@ -39,11 +39,11 @@ const createTopBar = function(){
     })
 }
 // 把各縣市資料放入表格
-const citydata =function(citynum, index){
+const citydata =function(citynum, index, location){
     const city=records.locations[0].location[citynum];
     const container_cities=document.createElement("div");
     container_cities.className="container_cities";
-    (document.querySelectorAll(".containerAll")[index]).appendChild(container_cities)
+    (document.querySelectorAll(location+".containerAll")[index]).appendChild(container_cities)
     // 建立側邊資料欄
     const SidebarElements = [
         {
@@ -76,7 +76,7 @@ const citydata =function(citynum, index){
     });
     // 建立各縣市天氣資料
     let indexArray=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-    if(date.getHours()>15){
+    if(date.getHours()>16){
         indexArray=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     }
     indexArray.forEach(function(timeindex, index){
@@ -161,22 +161,56 @@ const fetchAPI = function(){
         // 監聽狀態改變
         const mediaQueryList = window.matchMedia("(max-width: 1200px)")
         mediaQueryList.addEventListener("change",testView)
-        function testView (e) {
-            document.querySelector("main").innerHTML=""
-            if (e.matches) {
+        function testView (view) {
+            if (document.querySelector(".containerAll")){
+                document.querySelectorAll(".containerAll").forEach(element =>{element.remove()})
+            }
+            if (view.matches) {
                 console.log('Smaller than 1200px width!!')
-                wholeTaiwan.forEach( (citynum, index)=> {
-                    createTopBar(); 
-                    citydata(citynum, index);
+                NorthernTaiwan.forEach( (citynum, index)=> {
+                    createTopBar("#NorthernTaiwan"); 
+                    citydata(citynum, index, "#NorthernTaiwan>");
+                }); 
+                CentralTaiwan.forEach( (citynum, index)=> {
+                    createTopBar("#CentralTaiwan"); 
+                    citydata(citynum, index, "#CentralTaiwan>");
+                }); 
+                SouthernTaiwan.forEach( (citynum, index)=> {
+                    createTopBar("#SouthernTaiwan"); 
+                    citydata(citynum, index, "#SouthernTaiwan>");
+                }); 
+                EasternTaiwan.forEach( (citynum, index)=> {
+                    createTopBar("#EasternTaiwan"); 
+                    citydata(citynum, index, "#EasternTaiwan>");
+                }); 
+                Outlying_Islands.forEach( (citynum, index)=> {
+                    createTopBar("#Outlying_Islands"); 
+                    citydata(citynum, index, "#Outlying_Islands>");
                 }); 
                 setDtate()
             } else {
                 console.log('Bigger than 1200px width!!')
-                createTopBar()
-                setDtate()
-                wholeTaiwan.forEach( citynum => {
-                    citydata(citynum,0);
+                createTopBar("#NorthernTaiwan"); 
+                NorthernTaiwan.forEach( (citynum)=> {
+                    citydata(citynum, 0, "#NorthernTaiwan>");
                 }); 
+                createTopBar("#CentralTaiwan"); 
+                CentralTaiwan.forEach( (citynum) => {
+                    citydata(citynum, 0, "#CentralTaiwan>");
+                }); 
+                createTopBar("#SouthernTaiwan"); 
+                SouthernTaiwan.forEach( (citynum)=> {
+                    citydata(citynum, 0, "#SouthernTaiwan>");
+                }); 
+                createTopBar("#EasternTaiwan"); 
+                EasternTaiwan.forEach( (citynum)=> {
+                    citydata(citynum, 0, "#EasternTaiwan>");
+                }); 
+                createTopBar("#Outlying_Islands"); 
+                Outlying_Islands.forEach( (citynum)=> {
+                    citydata(citynum, 0, "#Outlying_Islands>");
+                }); 
+                setDtate()
                 }
         }
         testView(mediaQueryList)

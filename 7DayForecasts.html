@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta charset="utf-8" />
-        <title>Goodmorning-一周天氣預報</title>
+        <title>早安!-一周天氣</title>
         <script src="js/NavBar.js"></script>
         <link rel="stylesheet" type="text/css" href="css/NavBar.css" />
         <link rel="stylesheet" type="text/css" href="css/7DayForecasts.css" /> 
@@ -13,7 +13,30 @@
     </head>
     <body>
         <nav-bar></nav-bar>
-        <main></main>
+        <main>
+            <div class="tabs">
+                <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
+                <label for="tab1" class="tabs__label label1">北部</label>
+                <div class="tabs__content" id="NorthernTaiwan">
+                </div>
+                <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
+                <label for="tab2" class="tabs__label">中部</label>
+                <div class="tabs__content" id="CentralTaiwan">
+                </div>
+                <input type="radio" class="tabs__radio" name="tabs-example" id="tab3">
+                <label for="tab3" class="tabs__label">南部</label>
+                <div class="tabs__content" id="SouthernTaiwan">
+                </div>
+                <input type="radio" class="tabs__radio" name="tabs-example" id="tab4">
+                <label for="tab4" class="tabs__label">東部</label>
+                <div class="tabs__content" id="EasternTaiwan" >
+                </div>
+                <input type="radio" class="tabs__radio" name="tabs-example" id="tab5">
+                <label for="tab5" class="tabs__label label5">外島</label>
+                <div class="tabs__content" id="Outlying_Islands">
+                </div>
+            </div>            
+        </main>
         <script src="js/7DayForecasts.js"></script>
     </body>
 </html>
