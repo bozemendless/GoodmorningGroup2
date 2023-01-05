@@ -17,6 +17,25 @@ class NAVBAR extends HTMLElement {
                 </div>
             </div>
 
+            <div class="dropdown">
+                <div class="hamberg-container">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="dropdown-content">
+                    <div onclick="document.location.href='thirty-six-hours.html'">
+                        36小時天氣預測
+                    </div>
+                    <div onclick="document.location.href='7DayForecasts.html'">
+                        一週天氣
+                    </div>
+                    <div onclick="document.location.href='rainfall.html'">
+                        雨量
+                    </div>
+                </div>
+            </div>
+
         </div>
         `
     }
