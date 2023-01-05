@@ -20,7 +20,6 @@ main{
     line-height: 60px;
     width: 20%;
     height: 50px;
-    box-sizing: content-box;
     cursor: pointer;
     background-color: #767522;
     border-radius: 15px 15px 0 0 ;
@@ -45,7 +44,7 @@ main{
     order: 1;
     width: 100%;
     display: none;
-    margin: 20px 0 0 0;
+    margin: 40px 0 0 0;
 }
 
 .tabs__radio:checked + .tabs__label {
@@ -65,14 +64,12 @@ main{
     justify-content: center;
     align-items: center;
 }
-/* DateBar */
 .container_top{ 
     width: 1200px;
     display: grid;
     gap: 5px;
     grid-template-columns: 120px 72px repeat(7,1fr);
     grid-template-rows: 70px ;
-    grid-template-areas: "p1 p2 p3 p4 p5 p6 p7 p8 p9";
 }
 .container_top>div,
 .container_cities>div{
@@ -132,6 +129,7 @@ main{
     color: white;
 }
 .UVIindex{
+    text-align: center;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -140,15 +138,10 @@ main{
 }
 @media (max-width:1200px){
     .tabs {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
         width: 90%;
     }
     .containerAll{
         width: 100%;
-        padding: 0;
-        margin: 0;
         flex-direction: row;
         flex-wrap: wrap;
     }
@@ -158,7 +151,7 @@ main{
         padding-right: 5px;
         box-sizing: content-box;
         grid-auto-flow:column;
-        grid-template-rows: 70px 70px repeat(7,70px);
+        grid-template-rows: repeat(9,70px);
         grid-template-columns: 100%;
     }
     .container_cities{ 
@@ -167,14 +160,7 @@ main{
         grid-template-rows: repeat(9,70px);
         grid-template-columns: repeat(3,1fr) ;
         grid-template-areas: "city city city"
-                            "day night UVI"
-                            "1 2 3"
-                            "4 5 6 "
-                            "7 8 9"
-                            "10 11 12"
-                            "13 14 15"
-                            "16 17 18"
-                            "19 20 21"
+                            "day night UVI";
     }
 }
 

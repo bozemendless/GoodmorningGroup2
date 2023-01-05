@@ -4,6 +4,7 @@ const setDtate = function(){
     const weekdayArry =["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
     for (let i =0 ; i<7; i++){
         let milliseconds=date.getTime() + 1000*60*60*24*i;
+        // 超過17點就從隔天開始計算
         if ( date.getHours() > 16 ){
             milliseconds=date.getTime() + 1000*60*60*24+1000*60*60*24*i;
         }
@@ -76,6 +77,7 @@ const citydata =function(citynum, index, location){
     });
     // 建立各縣市天氣資料
     let indexArray=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    // 17點以後資料會變成15筆
     if(date.getHours()>16){
         indexArray=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     }
@@ -102,26 +104,25 @@ const citydata =function(citynum, index, location){
         container_cities.appendChild(oneday);
         oneday.appendChild(img);
         oneday.appendChild(weatherdata);
-
     })
     // 建立各縣市紫外線資料
     for (let n=0; n<7; n++){
-        let UVIvalue=city.weatherElement[9].time[n].elementValue[0].value
-        let UVIdiv=document.createElement("div")
-        let UVIindex=document.createElement("div")
-        UVIindex.textContent=UVIvalue
-        UVIindex.className="UVIindex"
-        UVIdiv.className="UVIdiv"
-        UVIindex.style.backgroundColor=changeUVI(UVIvalue)
-        let UVI_rowstart = 3
-        let UVI_columstart = n+3
+        let UVIvalue=city.weatherElement[9].time[n].elementValue[0].value;
+        let UVIdiv=document.createElement("div");
+        let UVIindex=document.createElement("div");
+        UVIindex.textContent=UVIvalue;
+        UVIindex.className="UVIindex";
+        UVIdiv.className="UVIdiv";
+        UVIindex.style.backgroundColor=changeUVI(UVIvalue);
+        let UVI_rowstart = 3;
+        let UVI_columstart = n+3;
         if(document.body.clientWidth < 1201){
-            UVIdiv.style.gridArea=UVI_columstart+"/"+UVI_rowstart
+            UVIdiv.style.gridArea=UVI_columstart+"/"+UVI_rowstart;
         }else{
             UVIdiv.style.gridArea=UVI_rowstart+"/"+UVI_columstart;
         }
-        container_cities.appendChild(UVIdiv)
-        UVIdiv.appendChild(UVIindex)
+        container_cities.appendChild(UVIdiv);
+        UVIdiv.appendChild(UVIindex);
     }}
 // // 天氣icon變化
 const changeImg =function(WeatherDescription){
@@ -140,7 +141,7 @@ const changeUVI = function(UVI){
     }else if(UVI<6){
         return "rgb(241, 169, 14)";
     }else{
-        return "rgb(202, 90, 90))";
+        return "rgb(202, 90, 90)";
     }
 }
 const fetchAPI = function(){
@@ -156,17 +157,18 @@ const fetchAPI = function(){
         return response.json();
     }).then((data)=>{
         records = data.records;
-        console.log(records);
-        const wholeTaiwan = [...NorthernTaiwan, ...CentralTaiwan, ...SouthernTaiwan, ...EasternTaiwan, ...Outlying_Islands]
-        // 監聽狀態改變
+        const wholeTaiwan = [NorthernTaiwan, CentralTaiwan, SouthernTaiwan, EasternTaiwan, Outlying_Islands]
+        // 監聽視窗改變
         const mediaQueryList = window.matchMedia("(max-width: 1200px)")
         mediaQueryList.addEventListener("change",testView)
+        // 視窗改變執行
         function testView (view) {
+            // 清空表格
             if (document.querySelector(".containerAll")){
-                document.querySelectorAll(".containerAll").forEach(element =>{element.remove()})
+                document.querySelectorAll(".containerAll").forEach(element =>{element.remove()});
             }
+            // window<1200px
             if (view.matches) {
-                console.log('Smaller than 1200px width!!')
                 NorthernTaiwan.forEach( (citynum, index)=> {
                     createTopBar("#NorthernTaiwan"); 
                     citydata(citynum, index, "#NorthernTaiwan>");
@@ -188,8 +190,7 @@ const fetchAPI = function(){
                     citydata(citynum, index, "#Outlying_Islands>");
                 }); 
                 setDtate()
-            } else {
-                console.log('Bigger than 1200px width!!')
+            } else {    // window>1200px
                 createTopBar("#NorthernTaiwan"); 
                 NorthernTaiwan.forEach( (citynum)=> {
                     citydata(citynum, 0, "#NorthernTaiwan>");
@@ -211,9 +212,10 @@ const fetchAPI = function(){
                     citydata(citynum, 0, "#Outlying_Islands>");
                 }); 
                 setDtate()
-                }
+            }
         }
-        testView(mediaQueryList)
+        // 初次fetch
+        testView(mediaQueryList);
     });
 }
-fetchAPI()
+fetchAPI();
