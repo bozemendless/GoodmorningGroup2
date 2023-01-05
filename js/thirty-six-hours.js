@@ -11,24 +11,24 @@ function getWxIconSrc(time,num) { // getWxTypeSrc(str:day|night,num)
     const arr = {
         day:{
             wxType: [
-                [[1],"/img/day-sun.svg"],
-                [[2,3,4,5,6,7],"/img/day-cloudy.svg"],
-                [[8,9,10,12,13,19,20,29,31,37],"/img/day-cloudy-rain.svg"],
-                [[11,14,30,32,38,39],"/img/rain.svg"],
-                [[15,16,17,18,21,22,33,34,35,36,41],"/img/day-thunder-rain.svg"],
-                [[23,42],"/img/day-snow.svg"],
-                [[24,25,26,27,28],"/img/day-fog.svg"]
+                [[1],"img/day-sun.svg"],
+                [[2,3,4,5,6,7],"img/day-cloudy.svg"],
+                [[8,9,10,12,13,19,20,29,31,37],"img/day-cloudy-rain.svg"],
+                [[11,14,30,32,38,39],"img/rain.svg"],
+                [[15,16,17,18,21,22,33,34,35,36,41],"img/day-thunder-rain.svg"],
+                [[23,42],"img/day-snow.svg"],
+                [[24,25,26,27,28],"img/day-fog.svg"]
             ]
         },
         night:{
             wxType: [
-                [[1],"/img/night-moon.svg"],
-                [[2,3,4,5,6,7],"/img/night-cloudy.svg"],
-                [[8,9,10,12,13,19,20,29,31,37],"/img/night-cloudy-rain.svg"],
-                [[11,14,30,32,38,39],"/img/rain.svg"],
-                [[15,16,17,18,21,22,33,34,35,36,41],"/img/night-thunder-rain.svg"],
-                [[23,42],"/img/night-snow.svg"],
-                [[24,25,26,27,28],"/img/night-fog.svg"]
+                [[1],"img/night-moon.svg"],
+                [[2,3,4,5,6,7],"img/night-cloudy.svg"],
+                [[8,9,10,12,13,19,20,29,31,37],"img/night-cloudy-rain.svg"],
+                [[11,14,30,32,38,39],"img/rain.svg"],
+                [[15,16,17,18,21,22,33,34,35,36,41],"img/night-thunder-rain.svg"],
+                [[23,42],"img/night-snow.svg"],
+                [[24,25,26,27,28],"img/night-fog.svg"]
             ]
         }
     }
@@ -131,10 +131,10 @@ function getWeather() {
                 // change icon on slider
                 const icon = document.querySelector("#icon img");
                 if (dayOrNight[period] === "day") {
-                    icon.src = "/img/sun.png";
+                    icon.src = "img/sun.png";
                 }
                 if (dayOrNight[period] === "night") {
-                    icon.src = "/img/moon.svg";
+                    icon.src = "img/moon.svg";
                 }
             }
 
