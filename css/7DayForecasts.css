@@ -7,6 +7,14 @@ main{
     position: relative;
     margin: 40px 0 ;
 }
+.containerAll{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/* DateBar */
 .container_top{ 
     width: 1200px;
     display: grid;
@@ -43,6 +51,7 @@ main{
                         "city night 1 3 5 7 9 11 13"
                         "city UVI U1 U2 U3 U4 U5 U6 U7";
 }
+/* sideBar */
 .city{
     grid-area: city;
     background-color: #767522;
@@ -58,14 +67,15 @@ main{
     background-color: #767522;
     color: white;
 }
-.oneday{
-    background-color: #FFF8F0;
-    color: gray;
-}
 .UVI{
     grid-area: UVI;
     background-color: #767522;
     color: white;
+}
+/* weatherData for each city*/
+.oneday{
+    background-color: #FFF8F0;
+    color: gray;
 }
 .UVIdiv{
     background-color: #FFF8F0;
@@ -76,7 +86,37 @@ main{
     height: 30px;
     border-radius: 50%;
     line-height: 30px;
-    box-shadow: 8px 8px 2px rgba(46, 45, 45, 0.125);
+    box-shadow: 5px 5px 2px rgba(46, 45, 45, 0.125);
 }
+@media (max-width:1200px){
+    .containerAll{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .container_top{ 
+            margin: 20px 5px 0 0 ;
+            width: 15%;
+            grid-auto-flow:column;
+            grid-template-rows: 120px 72px repeat(7,80px);
+            grid-template-columns: 100%;
+        }
+    .container_cities{ 
+            width: 80%;
+            margin: 20px 0 0 5px;
+            grid-template-rows: 120px 72px repeat(7,80px);
+            grid-template-columns: repeat(3,1fr) ;
+            grid-template-areas: "city city city"
+                                "day night UVI"
+                                "1 2 3"
+                                "4 5 6 "
+                                "7 8 9"
+                                "10 11 12"
+                                "13 14 15"
+                                "16 17 18"
+                                "19 20 21"
+        }
+}
+
 
 
