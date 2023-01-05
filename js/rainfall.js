@@ -84,6 +84,10 @@ function contentShow(event){
     let dataForCompare=[];
     let attractionName=[];
     document.querySelector(".day_contain").textContent=dataDay;
+    if(itemIndex=="--選擇地區--"){
+        document.querySelector(".daily_rain_contain").textContent="--";
+        return
+    }
     if(attractionPrecipitationArray[itemIndex]=="T"){
         document.querySelector(".daily_rain_contain").textContent="小於0.1mm";
         document.querySelector(".daily_rain_contain").style.color="rgb(72, 72, 72)";
