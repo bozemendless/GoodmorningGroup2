@@ -39,13 +39,19 @@ body .rainfall_section_one .select_block .select_first #selectTitle {
   margin-top: 25px;
   width: 200px;
   height: 50px;
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 1000;
   color: rgb(72, 72, 72);
   text-align: center;
   background-color: #F4D06F;
   border: 3px #767522 solid;
   border-radius: 5px;
+}
+body .rainfall_section_one .select_block .select_first #selectTitle option:hover {
+  background-color: yellow;
+}
+body .rainfall_section_one .select_block .select_first #selectTitle:hover {
+  background-color: #fbe199;
 }
 body .rainfall_section_one .select_block .select_second {
   font-size: 20px;
@@ -79,6 +85,9 @@ body .rainfall_section_one .select_block .select_second .daily_block .daily_rain
   width: 80%;
   text-align: center;
   line-height: 50px;
+}
+body .rainfall_section_one .select_block:hover {
+  background-color: #a7e3dc;
 }
 body .rainfall_section_two {
   margin-top: 100px;

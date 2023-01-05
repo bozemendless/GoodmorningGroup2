@@ -1,15 +1,25 @@
 
 window.onload=function(){
     fetchPerdayPrecipitation();
+
 }
 
 function fetchPerdayPrecipitation(){
-    let url="https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=CWB-77BB959D-93FD-4464-A496-4055FE8BC87E&format=JSON";
-    fetch(url,{
+    const apiKey = "CWB-A3D31E92-A9C0-49A3-A368-F98481A37B7C"
+    const weatherUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=${apiKey}`
+    // let url="https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=CWB-77BB959D-93FD-4464-A496-4055FE8BC87E&format=JSON";
+    // fetch(weatherUrl,{
+    //     method:"GET",
+    // }).then(function(response){
+    //     return response.json();
+    // }).then(function(data){
+    //     pickPerdayPrecipitationData(data);
+    // })
+    fetch(weatherUrl,{
         method:"GET",
-    }).then(function(response){
-        return response.json();
-    }).then(function(data){
+    }).then(response=>{
+        return response.json()
+    }).then(data=>{
         pickPerdayPrecipitationData(data);
     })
 }
@@ -60,6 +70,7 @@ function dealAttractionPrecipitationArray(attractionPrecipitationArray,attractio
     averagePrecipitation=totalAttractionPrecipitation/attractionPrecipitationArray.length;
     // console.log(averagePrecipitation);
     createChart(floatAttractionPrecipitationArray,attractionNameArray);
+    createChartCampare([0,0],"");
 }
 
 
@@ -85,7 +96,7 @@ function contentShow(event){
         dataForCompare=[0,averagePrecipitation];
         attractionName=attractionNameArray[itemIndex];
     }else{
-        document.querySelector(".daily_rain_contain").textContent=attractionPrecipitationArray[itemIndex];
+        document.querySelector(".daily_rain_contain").textContent=(String(attractionPrecipitationArray[itemIndex])+"mm");
         // attractionPrecipitation=attractionPrecipitationArray[itemIndex];
         document.querySelector(".daily_rain_contain").style.color="rgb(72, 72, 72)";
         // dealAttractionPrecipitation(attractionPrecipitation);
@@ -280,132 +291,7 @@ function createChartCampare(dataForCompare,attractionName){
 
 
 
-
-
-
-
-
-
-
-
-
-///============================
-
-
-
-
-
-
-
-
-
-
-
-// const dataUrl= "https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=CWB-77BB959D-93FD-4464-A496-4055FE8BC87E&format=JSON"
-// const xhr = new XMLHttpRequest()
-// xhr.open('GET',dataUrl, true)
-// xhr.send()
-// xhr.onload = function(){
-//     var data = JSON.parse(this.responseText);
-//     // console.log((data.records.location).length);
-//     amount=(data.records.location).length;
-//     // console.log(data.records.location[0].station.StationName);
-//     // console.log(data.records.location[0].stationObsTimes.stationObsTime[0].weatherElements);
-//     for(let i =0;i<amount;i++){
-//         console.log(data.records.location[i].station.StationName,"日降雨量 : ",data.records.location[i].stationObsTimes.stationObsTime[0].weatherElements.Precipitation);
-//         // if(data.records.location[i].station.StationName=="嘉義"){
-//         //     console.log(data.records.location[i].station.StationName," : ",data.records.location[i].stationObsTimes.stationObsTime[0].weatherElements.Precipitation);
-//         // }
-//     }
-    
-// }
-
-
-
-
-
 // T 雨跡，降水量小於0.1mm。V表示風向不定。
 // "X" 表無記錄值或儀器故障。
 // console.log(data.records.location[0].stationObsTimes.stationObsTime[0].weatherElements);
 
-
-//月
-// var dataUrl= "https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0027-001?Authorization=CWB-77BB959D-93FD-4464-A496-4055FE8BC87E&format=JSON"
-// var xhr = new XMLHttpRequest()
-// xhr.open('GET',dataUrl, true)
-// xhr.send()
-// xhr.onload = function(){
-//     var data = JSON.parse(this.responseText);
-//     console.log(data.records.data.surfaceObs.location[0].stationObsStatistics.Precipitation.monthly);
-//     // console.log((data.records.location).length);
-//     // amount=(data.records.location).length;
-//     // // console.log(data.records.location[0].station.StationName);
-//     // // console.log(data.records.location[0].stationObsTimes.stationObsTime[0].weatherElements);
-//     // for(let i =0;i<amount;i++){
-//     //     console.log(data.records.location[i].station.StationName," : ",data.records.location[i].stationObsTimes.stationObsTime[0].weatherElements.Precipitation);
-//     //     // if(data.records.location[i].station.StationName=="嘉義"){
-//     //     //     console.log(data.records.location[i].station.StationName," : ",data.records.location[i].stationObsTimes.stationObsTime[0].weatherElements.Precipitation);
-//     //     // }
-//     // }
-    
-// }
-// T 雨跡，降水量小於0.1mm。V表示風向不定。
-// "X" 表無記錄值或儀器故障。
-// console.log(data.records.location[0].stationObsTimes.stationObsTime[0].weatherElements);
-
-
-//===============   char
-// let ctx=document.getElementById("myChart").getContext("2d");
-// let labels=["apple","banana","hot dog","sushi"];
-// let colorHex=["#FB3640","#EFCA08","#43aa8b","#253d5b"];
-
-// let myChart =new Chart(ctx,{
-//     type:"pie",
-//     data:{
-//         datasets:[{
-//             data:[30,10,40,20],
-//             backgroundColor:colorHex
-//         }],
-//         labels:labels
-//     },
-//     options:{
-//         responsive:true
-//     }
-// })
-
-
-// const ctx = document.getElementById('myChart').getContext('2d');
-// const myChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//         labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: [
-//                 'rgba(255, 99, 132, 0.2)',
-//                 'rgba(54, 162, 235, 0.2)',
-//                 'rgba(255, 206, 86, 0.2)',
-//                 'rgba(75, 192, 192, 0.2)',
-//                 'rgba(153, 102, 255, 0.2)',
-//                 'rgba(255, 159, 64, 0.2)'
-//             ],
-//             borderColor: [
-//                 'rgba(255, 99, 132, 1)',
-//                 'rgba(54, 162, 235, 1)',
-//                 'rgba(255, 206, 86, 1)',
-//                 'rgba(75, 192, 192, 1)',
-//                 'rgba(153, 102, 255, 1)',
-//                 'rgba(255, 159, 64, 1)'
-//             ],
-//             borderWidth: 1
-//         }]
-//     },
-//     options: {
-//         scales: {
-//             y: {
-//                 beginAtZero: true
-//             }
-//         }
-//     }
-// });
