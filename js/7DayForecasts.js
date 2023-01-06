@@ -12,7 +12,7 @@ const setDtate = function(){
         let weekday = newdate.getDay();
         let month = newdate.getMonth()+1;
         let day = newdate.getDate();
-        if(weekday === 0 || weekday === 6){
+        if(weekday === 0 || weekday === 6){ //假日日期背景顏色和字型顏色變化
             document.querySelectorAll(".day"+i).forEach(element =>{element.style.backgroundColor="#F4D06F"});
             document.querySelectorAll(".day"+i).forEach(element =>{element.style.color="#767522"});
         }
@@ -78,7 +78,7 @@ const citydata =function(citynum, index, location){
     // 建立各縣市天氣資料
     let indexArray=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
     // 17點以後資料會變成15筆
-    if(date.getHours()>16){
+    if(date.getHours()>16 || date.getHours()<5){
         indexArray=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     }
     indexArray.forEach(function(timeindex, index){
@@ -124,7 +124,7 @@ const citydata =function(citynum, index, location){
         container_cities.appendChild(UVIdiv);
         UVIdiv.appendChild(UVIindex);
     }}
-// // 天氣icon變化
+// 天氣icon變化
 const changeImg =function(WeatherDescription){
     if(WeatherDescription.includes("雨")){
         return "./weather_icon/rainy.png";
