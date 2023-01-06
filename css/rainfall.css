@@ -13,11 +13,11 @@ body {
   height: 100%;
   background-color: #FFF8F0;
 }
-body .rainfall_title_secion {
+body .rainfall_subtitle_secion {
   display: flex;
   justify-content: center;
 }
-body .rainfall_title_secion .rainfall_title {
+body .rainfall_subtitle_secion .rainfall_subtitle {
   margin-top: 50px;
   font-size: 28px;
   font-weight: 800;
