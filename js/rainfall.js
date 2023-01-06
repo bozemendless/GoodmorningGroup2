@@ -7,14 +7,6 @@ window.onload=function(){
 function fetchPerdayPrecipitation(){
     const apiKey = "CWB-A3D31E92-A9C0-49A3-A368-F98481A37B7C"
     const weatherUrl = `https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=${apiKey}`
-    // let url="https://opendata.cwb.gov.tw/api/v1/rest/datastore/C-B0025-001?Authorization=CWB-77BB959D-93FD-4464-A496-4055FE8BC87E&format=JSON";
-    // fetch(weatherUrl,{
-    //     method:"GET",
-    // }).then(function(response){
-    //     return response.json();
-    // }).then(function(data){
-    //     pickPerdayPrecipitationData(data);
-    // })
     fetch(weatherUrl,{
         method:"GET",
     }).then(response=>{
@@ -84,6 +76,10 @@ function contentShow(event){
     let dataForCompare=[];
     let attractionName=[];
     document.querySelector(".day_contain").textContent=dataDay;
+    if(itemIndex=="--選擇地區--"){
+        document.querySelector(".daily_rain_contain").textContent="--";
+        return
+    }
     if(attractionPrecipitationArray[itemIndex]=="T"){
         document.querySelector(".daily_rain_contain").textContent="小於0.1mm";
         document.querySelector(".daily_rain_contain").style.color="rgb(72, 72, 72)";
@@ -105,34 +101,6 @@ function contentShow(event){
     }
     createChartCampare(dataForCompare,attractionName);
 }
-
-
-
-
-
-
-//=======================   判讀是否超大豪雨    ========================
-
-// function dealAttractionPrecipitation(attractionPrecipitation){
-//     attractionPrecipitation=parseInt(attractionPrecipitation);
-//     if(attractionPrecipitation>=500){
-//         console.log("超大豪雨");
-//         createChart(100);
-//     }else if(attractionPrecipitation>=350){
-//         console.log("大豪雨");
-//         createChart(100);
-//     }else if(attractionPrecipitation>=200){
-//         console.log("豪雨");
-//         createChart(100);
-//     }else if(attractionPrecipitation>=80){
-//         console.log("大雨");
-//         attractionPrecipitation=Math.sqrt(attractionPrecipitation)*10;
-//         createChart(attractionPrecipitation);
-//     }else{
-//         attractionPrecipitation=Math.sqrt(attractionPrecipitation)*10;
-//         createChart(attractionPrecipitation);
-//     }
-// }
 
 
 function createChart(floatAttractionPrecipitationArray,attractionNameArray){
@@ -231,6 +199,9 @@ function createChartCampare(dataForCompare,attractionName){
         }
     });
 
+
+
+    
     //==========================
 
     // const myChart = new Chart(ctx, {
@@ -295,3 +266,31 @@ function createChartCampare(dataForCompare,attractionName){
 // "X" 表無記錄值或儀器故障。
 // console.log(data.records.location[0].stationObsTimes.stationObsTime[0].weatherElements);
 
+
+
+
+
+
+
+//=======================   判讀是否超大豪雨    ========================
+
+// function dealAttractionPrecipitation(attractionPrecipitation){
+//     attractionPrecipitation=parseInt(attractionPrecipitation);
+//     if(attractionPrecipitation>=500){
+//         console.log("超大豪雨");
+//         createChart(100);
+//     }else if(attractionPrecipitation>=350){
+//         console.log("大豪雨");
+//         createChart(100);
+//     }else if(attractionPrecipitation>=200){
+//         console.log("豪雨");
+//         createChart(100);
+//     }else if(attractionPrecipitation>=80){
+//         console.log("大雨");
+//         attractionPrecipitation=Math.sqrt(attractionPrecipitation)*10;
+//         createChart(attractionPrecipitation);
+//     }else{
+//         attractionPrecipitation=Math.sqrt(attractionPrecipitation)*10;
+//         createChart(attractionPrecipitation);
+//     }
+// }
