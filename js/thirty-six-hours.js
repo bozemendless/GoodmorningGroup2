@@ -87,6 +87,17 @@ function getWeather() {
             const dayOrNight = [];
             let period = 0;
 
+            // Order cities as from north to south
+            const cityOrder = ["基隆市", "臺北市", "新北市", "桃園市", "新竹市", "新竹縣", "苗栗縣", "臺中市", "彰化縣", "南投縣", "雲林縣", "嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "臺東縣", "澎湖縣", "金門縣", "連江縣"]
+            const orderedLocations = Array(numberOfCities);
+            for (let i = 0; i < numberOfCities; i ++) {
+                if (cityOrder.includes(location[i].locationName)) {
+                    orderedLocations[cityOrder.indexOf(location[i].locationName)] = location[i];
+                } else {
+                    orderedLocations.push(location[i]);
+                }
+            }
+
             // View of ticks and set time periods
             const span = document.getElementsByClassName("tick");
             const defaultTime = location[0].weatherElement[0].time
@@ -115,17 +126,17 @@ function getWeather() {
                 const rain = document.getElementsByClassName("rain");
                 for (let i = 0; i < numberOfCities; i ++) {
                     // City name
-                    cities[i].textContent = location[i].locationName;
+                    cities[i].textContent = orderedLocations[i].locationName;
                     // Wx
-                    img[i].title = location[i].weatherElement[0].time[period].parameter.parameterName;
-                    img[i].alt = location[i].weatherElement[0].time[period].parameter.parameterName;
-                    img[i].src = getWxIconSrc(dayOrNight[period], parseInt(location[i].weatherElement[0].time[period].parameter.parameterValue));
+                    img[i].title = orderedLocations[i].weatherElement[0].time[period].parameter.parameterName;
+                    img[i].alt = orderedLocations[i].weatherElement[0].time[period].parameter.parameterName;
+                    img[i].src = getWxIconSrc(dayOrNight[period], parseInt(orderedLocations[i].weatherElement[0].time[period].parameter.parameterValue));
                     // Temperature
-                    const minToMaxTemperature = `${location[i].weatherElement[2].time[period].parameter.parameterName} - ${location[i].weatherElement[4].time[period].parameter.parameterName}`;
+                    const minToMaxTemperature = `${orderedLocations[i].weatherElement[2].time[period].parameter.parameterName} - ${orderedLocations[i].weatherElement[4].time[period].parameter.parameterName}`;
                     temperatureSpans[i].textContent = minToMaxTemperature;
 
                     // PoP
-                    rain[i].textContent = location[i].weatherElement[1].time[period].parameter.parameterName + "%";
+                    rain[i].textContent = orderedLocations[i].weatherElement[1].time[period].parameter.parameterName + "%";
                     rain[i].title = "降雨機率";
                 }
                 // change icon on slider
