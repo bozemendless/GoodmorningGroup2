@@ -84,12 +84,12 @@ function getWeather() {
             // Set local variables
             const location = data.records.location;
             const numberOfCities = location.length;
-            const dayOrNight = [];
-            let period = 0;
+            const dayOrNight = []; // Three periods are daytime or nighttime separately, and push the results into the array
+            let period = 0; // Period toggle
 
             // Order cities as from north to south
             const cityOrder = ["基隆市", "臺北市", "新北市", "桃園市", "新竹市", "新竹縣", "苗栗縣", "臺中市", "彰化縣", "南投縣", "雲林縣", "嘉義市", "嘉義縣", "臺南市", "高雄市", "屏東縣", "宜蘭縣", "花蓮縣", "臺東縣", "澎湖縣", "金門縣", "連江縣"]
-            const orderedLocations = Array(numberOfCities);
+            const orderedLocations = Array(cityOrder.length); // Default numbers of city is the length of cityOrder
             for (let i = 0; i < numberOfCities; i ++) {
                 if (cityOrder.includes(location[i].locationName)) {
                     orderedLocations[cityOrder.indexOf(location[i].locationName)] = location[i];
