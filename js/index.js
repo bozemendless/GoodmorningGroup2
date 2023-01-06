@@ -94,9 +94,9 @@ function renderRaining(){
         locationName.textContent = records.location[i].locationName
 
         // Wx天氣現象
-        const Wxdiv = document.createElement("div");
-        Wxdiv.classList.add("Wxdiv");
-        Wxdiv.textContent = records.location[i].weatherElement[0].time[0].parameter.parameterName
+        const wxDiv = document.createElement("div");
+        wxDiv.classList.add("wxDiv");
+        wxDiv.textContent = records.location[i].weatherElement[0].time[0].parameter.parameterName
 
         // 天氣圖
         const weatherImage = document.createElement("div");
@@ -132,7 +132,7 @@ function renderRaining(){
         popNumner.textContent = records.location[i].weatherElement[1].time[0].parameter.parameterName+"%"
         popTitle.appendChild(popNumner)
 
-        locationName.appendChild(Wxdiv)
+        locationName.appendChild(wxDiv)
         locationName.appendChild(weatherImage)
         locationName.appendChild(comfortTitle)
         locationName.appendChild(temperatureRange)
