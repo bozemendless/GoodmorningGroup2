@@ -18,14 +18,14 @@ function fetchPerdayPrecipitation(){
 
 let attractionNameArray = [];
 let attractionPrecipitationArray = [];
-let attractionAmount="";
+let numberOfAttraction="";
 let dataDay="";
 function pickPerdayPrecipitationData(data){ 
     let attractionIndexArray = [];
     dataDay=data.records.location[1].stationObsTimes.stationObsTime[data.records.location[1].stationObsTimes.stationObsTime.length-1].Date;
     // console.log(data.records.location[9].stationObsTimes.stationObsTime[3-1]);
-    attractionAmount=(data.records.location).length;
-    for(let i =0;i<attractionAmount;i++){
+    numberOfAttraction=(data.records.location).length;
+    for(let i =0;i<numberOfAttraction;i++){
         attractionIndexArray.push(i);
         attractionNameArray.push(data.records.location[i].station.StationName);
         attractionPrecipitationArray.push(data.records.location[i].stationObsTimes.stationObsTime[data.records.location[0].stationObsTimes.stationObsTime.length-1].weatherElements.Precipitation);
