@@ -17,24 +17,26 @@
         2. 網頁資訊內容
         3. 抽籤分工
         4. 主題色確定
+            ![image](img/palette.png)
         5. 開專案
 - Tue: 工作工作工作
 - Wed: 
-    * 第一次develop branch merge -> nav bar + 36小時天氣預測
+    * 頁面進度討論
         - css 污染問題
         ```
             *{
                 box-sizing: border-box; //default is content-box
             }
         ```
-    * 其他頁面進度
         - RWD issue
 - Thu:
-    * 第二次develop branch merge
-    * 修改內容
+    * 頁面進度討論
+        - 發現副標忘記標
+        - nav bar新增漢堡圖示(RWD related)
 - Fri:
     * 報告rehearsal
     * main branch merge
+    * 收集組員心得
 
 ## 組員心得
 * 王薇:
