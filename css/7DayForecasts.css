@@ -1,0 +1,182 @@
+.title{
+    width: 1190px;
+    margin-bottom: 50px ;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgb(130, 127, 127);
+    border-bottom: rgb(130, 127, 127) 2px solid;
+}
+main{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 ;
+    font-family: 'Noto Sans TC';
+}
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 1200px;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+.tabs__label {
+    color: white;
+    text-align: center;
+    line-height: 60px;
+    width: 20%;
+    height: 50px;
+    cursor: pointer;
+    background-color: #767522;
+    border-radius: 15px 15px 0 0 ;
+    border-bottom: 10px solid #9DD9D2;
+}
+.label1{
+    border-radius: 15px 15px 0 15px ;
+}
+.label5{
+    border-radius: 15px 15px 15px 0 ;
+}
+.tabs__label:hover{
+    background-color: #F4D06F;
+    color:#767522;
+    font-weight: bold;
+}
+.tabs__radio {
+    display: none;
+}
+
+.tabs__content {
+    order: 1;
+    width: 100%;
+    display: none;
+    margin: 40px 0 0 0;
+}
+
+.tabs__radio:checked + .tabs__label {
+    background-color: #9DD9D2;
+    font-weight: bold;
+    color: #767522;
+}
+
+.tabs__radio:checked + .tabs__label + .tabs__content {
+    display: block;
+}
+  
+.containerAll{
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container_top{ 
+    width: 100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 120px 72px repeat(7,1fr);
+    grid-template-rows: 70px ;
+}
+.container_top>div,
+.container_cities>div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    white-space: pre;
+    text-align: center;
+    border-radius: 5px;
+}
+.container_top>div{
+    color: white;
+    background-color: #767522;
+}
+.container_cities{ 
+    margin-top: 5px;
+    width: 100%;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 120px 72px repeat(7,1fr);
+    grid-auto-rows: 70px ;
+    grid-template-areas: 
+                        "city day 0 2 4 6 8 10 12"
+                        "city night 1 3 5 7 9 11 13"
+                        "city UVI U1 U2 U3 U4 U5 U6 U7";
+}
+/* sideBar */
+.city{
+    grid-area: city;
+    background-color: #767522;
+    color: white;
+}
+.day{
+    grid-area: day;
+    background-color: #767522;
+    color: white;
+}
+.night{
+    grid-area: night;
+    background-color: #767522;
+    color: white;
+}
+.UVI{
+    grid-area: UVI;
+    background-color: #767522;
+    color: white;
+}
+/* weatherData for each city*/
+.oneday{
+    font-size: 12px;
+    background-color: #FFF8F0;
+    color: gray;
+}
+.UVIdiv{
+    background-color: #FFF8F0;
+    color: white;
+}
+.UVIindex{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    box-shadow: 5px 5px 2px rgba(46, 45, 45, 0.125);
+}
+@media (max-width:1200px){
+    .title{
+        width: calc(90% - 10px);
+    }
+    .tabs {
+        width: 90%;
+    }
+    .containerAll{
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .container_top{ 
+        margin: 0 0 20px 0 ;
+        width: 20%;
+        padding-right: 5px;
+        box-sizing: content-box;
+        grid-auto-flow:column;
+        grid-template-rows: repeat(9,70px);
+        grid-template-columns: 100%;
+    }
+    .container_cities{ 
+        width: calc(80% - 5px);
+        margin: 0 0 20px 0;
+        grid-template-rows: repeat(9,70px);
+        grid-template-columns: repeat(3,1fr) ;
+        grid-template-areas: "city city city"
+                            "day night UVI";
+    }
+}
+
+
+
