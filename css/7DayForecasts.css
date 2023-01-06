@@ -1,10 +1,10 @@
 .title{
     width: 1190px;
     margin-bottom: 50px ;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 700;
-    color: rgb(130, 127, 127);
-    border-bottom: rgb(130, 127, 127) 2px solid;
+    color: #555;
+    border-bottom: #555 2px solid;
 }
 main{
     position: relative;
@@ -149,7 +149,7 @@ main{
 }
 @media (max-width:1200px){
     .title{
-        width: calc(90% - 10px);
+        width: calc(100% - 10px);
     }
     .tabs {
         width: 90%;
