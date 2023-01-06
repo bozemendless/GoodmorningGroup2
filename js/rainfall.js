@@ -70,7 +70,7 @@ function dealAttractionPrecipitationArray(attractionPrecipitationArray,attractio
 
 
 const optionElement = document.getElementById("selectTitle");
-optionElement.addEventListener("click",contentShow); // 當下拉式選單被點擊時，要執行什麼函數
+optionElement.addEventListener("change",contentShow); // 當下拉式選單被點擊時，要執行什麼函數
 function contentShow(event){
     let itemIndex=event.target.value;
     let dataForCompare=[];
