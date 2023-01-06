@@ -1,0 +1,98 @@
+body {
+    height: 100%;
+    width: 100%;
+    background-color: #FFF8F0;
+}
+.title {
+    width: 1200px;
+    margin: 0 auto;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.hrstyle {
+    width: 1200px;
+    background-color: #E8E8E8;
+    border: 0;
+    height: 1px;
+}
+.indexcontainor {
+    width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 25px;
+    row-gap: 20px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+.locationName {
+    border-radius: 10px;
+    background:  #9DD9D2;
+    height: 400px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 35px;
+    padding-bottom: 10px;
+}
+.locationName:hover {
+    background:  #F4D06F;
+}
+.weatherImage {
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.Wxdiv,
+.temperatureLowtitle,
+.temperatureHightitle {
+    padding-top: 20px;
+}
+.comfortTitle {
+    padding-bottom: 15px;
+}
+.popTitle {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+.rainingIcon {
+    width: 25px;
+    height: 25px;
+}
+@media(max-width: 1200px){
+    .title,
+    .indexcontainor,
+    .hrstyle {
+        width: 80%;
+    }
+}
+@media(max-width: 800px){
+    .indexcontainor {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 25px;
+        row-gap: 20px;
+    }
+}
+@media(max-width: 500px){
+    .title {
+        width: 100%;
+    }
+    .hrstyle {
+        width: 100%;
+    }
+    .indexcontainor {
+        width: 100%;
+        display: block;
+        padding-top: 25px;
+        padding-bottom: 50px;
+    }
+    .locationName {
+        margin-bottom: 30px;
+    }
+}
