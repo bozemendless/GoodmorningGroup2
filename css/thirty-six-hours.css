@@ -28,13 +28,25 @@
 .content-wrapper {
     margin: auto;
     width: 100%;
-    margin-top: 100px;
+}
+
+/* ===== Slogan ===== */
+.slogan {
+    padding: 50px 0 0;
+    margin: auto;
+}
+
+.slogan>p{
+    font-size: 24px;
+    margin: 0 7px;
+    border-bottom: 2px solid #555;
 }
 
 /* ===== Slider ===== */
 .slider {
     width: 360px;
     margin: auto;
+    padding-top: 50px;
 }
 
 #line {
@@ -91,6 +103,11 @@
 }
 
 @media screen and (min-width: 768px) {
+    /* ===== Slogan ===== */
+    .slogan {
+        max-width: 1200px;
+    }
+
     .slider {
         width: 600px;
     }
@@ -102,7 +119,7 @@
 
 /* ===== Current time ===== */
 .current-time {
-    margin: 60px auto 15px;
+    margin: 50px auto;
     text-align: center;
 }
 
@@ -115,13 +132,6 @@
     display: block;
     font-size: 16px;
 }
-
-@media screen and (min-width: 768px) {
-    .current-time {
-        margin: 80px auto 30px;
-    }
-}
-
 
 /* ===== Table ===== */
 
