@@ -1,5 +1,5 @@
 # GoodmorningGroup2
-[https://yitingtinaren.github.io/GoodmorningGroup2/index.html](https://yitingtinaren.github.io/GoodmorningGroup2/index.html)
+[LIVE DEMO](https://bozemendless.github.io/GoodmorningGroup2/)
 
 ## 分工
 |Group member|Responsibility|
